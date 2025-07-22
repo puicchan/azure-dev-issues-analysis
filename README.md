@@ -25,6 +25,7 @@ github-issues-project/
 └── tools/
     ├── issue-collector.md              # Scripts/tools for data collection
     └── analysis-helpers.md             # Helper tools and utilities
+```
 
 ## Objectives
 
