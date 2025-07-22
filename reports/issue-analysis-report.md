@@ -78,7 +78,35 @@ Resolution Rate: 69.0%
 
 ## Detailed results
 
-### 1. 🔐 Authentication & Login Issues (104 issues)
+### 1. 🌎 Environment management (315 issues)
+
+**Core Challenges:** *(Real analysis from 315 environment-related issues - 37.4% of all open issues)*
+- Environment configuration and variable management complexity
+- Multi-environment workflow confusion and setup difficulties
+- Environment switching and context management problems  
+- Infrastructure state management across environments
+- Environment variable precedence and interpolation issues
+
+**User Experience Issues:**
+- Complex environment setup processes blocking new users
+- Unclear environment variable handling and configuration
+- Lack of standardized multi-environment deployment patterns
+- Environment cleanup and management overhead
+
+**Resolution Status:** *(Based on comprehensive analysis)*
+- **Current Open**: 315 issues (37.4% of all open issues)
+- **Category Rank**: 📈 **#1 MOST COMMON ISSUE TYPE**
+- **Impact**: Major barrier to Azure adoption and developer productivity
+- **Resolution Rate**: 69.0% overall (estimated similar for environment issues)
+
+**Recommended Actions:**
+1. **URGENT**: Redesign `azd env` commands with better UX
+2. **HIGH PRIORITY**: Add `azd env list` and `azd env switch` commands
+3. Improve environment variable documentation and examples
+4. Add environment validation and health checks
+5. Create environment management best practices guide
+
+### 2. 🔐 Authentication & Login Issues (104 issues)
 
 **Most Common Problems:** *(Analysis from 104 authentication-related issues)*
 
@@ -106,34 +134,6 @@ Resolution Rate: 69.0%
 2. Improve error messages for auth failures with specific troubleshooting steps
 3. Add authentication health check command (`azd auth status --detailed`)
 4. Create platform-specific auth documentation
-
-### 2. 🌎 Environment management (315 issues)
-
-**Core Challenges:** *(Real analysis from 315 environment-related issues - 37.4% of all open issues)*
-- Environment configuration and variable management complexity
-- Multi-environment workflow confusion and setup difficulties
-- Environment switching and context management problems  
-- Infrastructure state management across environments
-- Environment variable precedence and interpolation issues
-
-**User Experience Issues:**
-- Complex environment setup processes blocking new users
-- Unclear environment variable handling and configuration
-- Lack of standardized multi-environment deployment patterns
-- Environment cleanup and management overhead
-
-**Resolution Status:** *(Based on comprehensive analysis)*
-- **Current Open**: 315 issues (37.4% of all open issues)
-- **Category Rank**: 📈 **#1 MOST COMMON ISSUE TYPE**
-- **Impact**: Major barrier to Azure adoption and developer productivity
-- **Resolution Rate**: 69.0% overall (estimated similar for environment issues)
-
-**Recommended Actions:**
-1. **URGENT**: Redesign `azd env` commands with better UX
-2. **HIGH PRIORITY**: Add `azd env list` and `azd env switch` commands
-3. Improve environment variable documentation and examples
-4. Add environment validation and health checks
-5. Create environment management best practices guide
 
 ### 3. 🏗️ Template & Scaffolding (103 issues)
 
