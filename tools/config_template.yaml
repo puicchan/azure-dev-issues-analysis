@@ -1,0 +1,203 @@
+# GitHub Issues Analysis Configuration
+# Copy this file to config.yaml and customize as needed
+
+# GitHub Configuration
+github:
+  token: "YOUR_GITHUB_TOKEN_HERE"  # Get from https://github.com/settings/tokens
+  repository:
+    owner: "Azure"
+    name: "azure-dev"
+
+# Output Configuration
+output:
+  directory: "./data/raw-data"
+  formats:
+    - json
+    - csv
+  include_enriched_data: false  # Set to true for detailed issue data (slower)
+
+# Query Configuration
+queries:
+  # Core issue retrieval queries
+  core:
+    high_engagement:
+      query: "reactions:>5"
+      description: "Issues with significant community interest"
+    feature_requests:
+      query: "label:enhancement is:open"
+      description: "Open feature requests and enhancements"
+    high_impact_bugs:
+      query: "label:bug reactions:>3"
+      description: "Bugs affecting many users"
+    recent_priority:
+      query: "created:>2024-01-01 reactions:>2"
+      description: "Recent high-priority issues"
+
+  # Category-specific queries
+  categories:
+    authentication:
+      auth_issues:
+        query: "auth OR login OR authentication"
+        description: "Authentication and login problems"
+      auth_specific:
+        query: "\"azd auth\" OR \"authentication failed\" OR \"login error\""
+        description: "Specific auth command issues"
+    
+    environment:
+      env_management:
+        query: "environment OR env in:title"
+        description: "Environment management problems"
+      env_specific:
+        query: "\"azd env\" OR \"environment variable\" OR \"env switch\""
+        description: "Specific environment command issues"
+    
+    templates:
+      template_issues:
+        query: "template OR scaffold in:title"
+        description: "Template and scaffolding problems"
+      template_specific:
+        query: "\"azd init\" OR \"template creation\" OR scaffold"
+        description: "Project initialization issues"
+    
+    documentation:
+      doc_requests:
+        query: "documentation OR docs OR \"how to\""
+        description: "Documentation gaps and requests"
+    
+    vscode:
+      vscode_issues:
+        query: "vscode OR extension in:title"
+        description: "VS Code integration problems"
+    
+    deployment:
+      deployment_issues:
+        query: "\"azd deploy\" OR \"deployment failed\" OR \"deploy error\""
+        description: "Deployment-related problems"
+      provisioning:
+        query: "\"azd up\" OR provisioning OR infrastructure"
+        description: "Infrastructure provisioning issues"
+    
+    installation:
+      install_issues:
+        query: "install OR setup OR \"getting started\""
+        description: "Installation and setup problems"
+    
+    containers:
+      docker_issues:
+        query: "docker OR container OR containerization"
+        description: "Container-related issues"
+    
+    azure:
+      azure_integration:
+        query: "azure AND (service OR integration OR resource)"
+        description: "Azure service integration problems"
+
+  # Temporal analysis queries
+  temporal:
+    quarterly_2024:
+      q1_2024:
+        query: "created:2024-01-01..2024-03-31"
+        description: "Q1 2024 issues"
+      q2_2024:
+        query: "created:2024-04-01..2024-06-30"
+        description: "Q2 2024 issues"
+      q3_2024:
+        query: "created:2024-07-01..2024-09-30"
+        description: "Q3 2024 issues"
+      q4_2024:
+        query: "created:2024-10-01..2024-12-31"
+        description: "Q4 2024 issues"
+    
+    quarterly_2025:
+      q1_2025:
+        query: "created:2025-01-01..2025-03-31"
+        description: "Q1 2025 issues"
+      q2_2025:
+        query: "created:2025-04-01..2025-06-30"
+        description: "Q2 2025 issues"
+    
+    recent_activity:
+      recently_closed:
+        query: "is:closed closed:>2024-06-01"
+        description: "Recently resolved issues"
+      long_standing:
+        query: "is:open created:<2024-01-01"
+        description: "Long-standing open issues"
+
+  # Engagement analysis queries
+  engagement:
+    high_engagement:
+      most_commented:
+        query: "comments:>10"
+        sort: "comments"
+        description: "Issues with most discussion"
+      most_reacted:
+        query: "reactions:>10"
+        sort: "reactions"
+        description: "Issues with highest community engagement"
+      recently_updated:
+        query: "updated:>2024-06-01"
+        sort: "updated"
+        description: "Recently active issues"
+
+# Rate Limiting Configuration
+rate_limiting:
+  requests_per_hour: 4000  # Conservative limit for GitHub API
+  delay_between_requests: 1.0  # Seconds
+  retry_attempts: 3
+  backoff_factor: 2
+
+# Analysis Configuration
+analysis:
+  include_pull_requests: false  # Focus on issues only
+  minimum_reactions_for_priority: 2
+  minimum_comments_for_engagement: 5
+  
+  # Issue categorization
+  categorization:
+    bug_labels: ["bug", "issue", "problem"]
+    enhancement_labels: ["enhancement", "feature", "improvement"]
+    documentation_labels: ["documentation", "docs", "readme"]
+    help_labels: ["help wanted", "question", "support"]
+
+# Reporting Configuration
+reporting:
+  generate_summary: true
+  include_charts: false  # Requires additional dependencies
+  export_formats:
+    - csv
+    - json
+    - markdown
+  
+  # Summary statistics to include
+  summary_metrics:
+    - total_issues
+    - issues_by_state
+    - issues_by_label
+    - engagement_metrics
+    - temporal_trends
+
+# Advanced Configuration
+advanced:
+  # Data enrichment (requires additional API calls)
+  enrichment:
+    enabled: false
+    include_comments: true
+    include_reactions: true
+    include_timeline: false  # Very API intensive
+    max_issues_to_enrich: 50  # Limit to avoid rate limits
+  
+  # Filtering
+  filters:
+    exclude_labels: ["duplicate", "invalid", "wontfix"]
+    include_only_labels: []  # Empty means include all
+    date_range:
+      start: null  # YYYY-MM-DD format or null for no limit
+      end: null    # YYYY-MM-DD format or null for no limit
+  
+  # Custom queries
+  custom_queries: []
+    # Example:
+    # - name: "custom_search"
+    #   query: "your custom search terms"
+    #   description: "Description of what this finds"

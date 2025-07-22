@@ -1,0 +1,15 @@
+{
+  "authentication": [],
+  "auth_specific": [],
+  "environment": [],
+  "env_specific": [],
+  "templates": [],
+  "template_specific": [],
+  "documentation": [],
+  "vscode": [],
+  "deployment": [],
+  "provisioning": [],
+  "installation": [],
+  "docker": [],
+  "azure_integration": []
+}

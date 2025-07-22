@@ -1,0 +1,144 @@
+# GitHub Issues Analysis Configuration
+# Personal configuration file - DO NOT COMMIT TO GIT
+
+# GitHub Configuration
+github:
+  token: "PUT_YOUR_GITHUB_TOKEN_HERE"  # Get from https://github.com/settings/tokens
+  repository:
+    owner: "Azure"
+    name: "azure-dev"
+
+# Output Configuration
+output:
+  directory: "./data/raw-data"
+  formats:
+    - json
+    - csv
+  include_enriched_data: true  # Set to true for detailed issue data (slower but more complete)
+
+# Query Configuration
+queries:
+  # Core issue retrieval queries
+  core:
+    high_engagement:
+      query: "reactions:>5"
+      description: "Issues with significant community interest"
+    feature_requests:
+      query: "label:enhancement is:open"
+      description: "Open feature requests and enhancements"
+    high_impact_bugs:
+      query: "label:bug reactions:>3"
+      description: "Bugs affecting many users"
+    recent_priority:
+      query: "created:>2024-01-01 reactions:>2"
+      description: "Recent high-priority issues"
+
+  # Category-specific queries
+  categories:
+    authentication:
+      auth_issues:
+        query: "auth OR login OR authentication"
+        description: "Authentication and login problems"
+      auth_specific:
+        query: "\"azd auth\" OR \"authentication failed\" OR \"login error\""
+        description: "Specific auth command issues"
+    
+    environment:
+      env_management:
+        query: "environment OR env in:title"
+        description: "Environment management problems"
+      env_specific:
+        query: "\"azd env\" OR \"environment variable\" OR \"env switch\""
+        description: "Specific environment command issues"
+
+    templates:
+      template_issues:
+        query: "template OR scaffold in:title"
+        description: "Template and scaffolding problems"
+      template_specific:
+        query: "\"azd init\" OR \"template creation\" OR scaffold"
+        description: "Specific template command issues"
+
+    documentation:
+      documentation:
+        query: "documentation OR docs OR \"how to\""
+        description: "Documentation gaps and requests"
+
+    vscode:
+      vscode_issues:
+        query: "vscode OR extension in:title"
+        description: "VS Code extension issues"
+
+    deployment:
+      deployment_issues:
+        query: "\"azd deploy\" OR \"deployment failed\" OR \"deploy error\""
+        description: "Deployment command issues"
+      provisioning:
+        query: "\"azd up\" OR provisioning OR infrastructure"
+        description: "Provisioning and infrastructure issues"
+
+    installation:
+      installation:
+        query: "install OR setup OR \"getting started\""
+        description: "Installation and setup issues"
+
+    docker:
+      docker_issues:
+        query: "docker OR container OR containerization"
+        description: "Docker and containerization issues"
+
+    azure_integration:
+      azure_integration:
+        query: "azure AND (service OR integration OR resource)"
+        description: "Azure service integration issues"
+
+  # Time-based queries
+  temporal:
+    q1_2024:
+      query: "created:2024-01-01..2024-03-31"
+      description: "Q1 2024 issues"
+    q2_2024:
+      query: "created:2024-04-01..2024-06-30"
+      description: "Q2 2024 issues"
+    q3_2024:
+      query: "created:2024-07-01..2024-09-30"
+      description: "Q3 2024 issues"
+    q4_2024:
+      query: "created:2024-10-01..2024-12-31"
+      description: "Q4 2024 issues"
+    q1_2025:
+      query: "created:2025-01-01..2025-03-31"
+      description: "Q1 2025 issues"
+    q2_2025:
+      query: "created:2025-04-01..2025-06-30"
+      description: "Q2 2025 issues"
+    recently_closed:
+      query: "is:closed closed:>2024-06-01"
+      description: "Recently closed issues"
+    long_standing:
+      query: "is:open created:<2024-01-01"
+      description: "Long-standing open issues"
+
+  # Engagement queries
+  engagement:
+    most_commented:
+      query: "comments:>10"
+      description: "Most discussed issues"
+    most_reacted:
+      query: "reactions:>10"
+      description: "Most reacted issues"
+    recently_updated:
+      query: "updated:>2024-06-01"
+      description: "Recently updated issues"
+
+# Rate limiting settings
+rate_limiting:
+  requests_per_hour: 4000  # Conservative limit for GitHub API
+  delay_between_requests: 1.0  # Seconds
+
+# Analysis settings
+analysis:
+  max_issues_per_query: 1000  # GitHub API limit
+  enrich_issue_details: true
+  collect_comments: true
+  collect_reactions: true
