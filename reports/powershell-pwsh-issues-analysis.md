@@ -4,7 +4,7 @@
 **Total Issues Analyzed:** 46  
 **Focus:** Customer struggles with `pwsh` vs `PowerShell` when PowerShell 7 is not installed
 
-## Executive Summary
+## Summary
 
 This report analyzes GitHub issues from the Azure Developer CLI repository related to customers struggling with PowerShell configuration, specifically issues arising when users don't have PowerShell 7 installed and encounter `pwsh` command failures.
 
@@ -30,7 +30,6 @@ These are the most critical issues where users encounter "pwsh is not recognized
 | [#4653](https://github.com/Azure/azure-dev/issues/4653) | [Issue] Failed to deploy app when app name too long or different app name has sa... | 2024-12-26 | 223 | 1 | High | compose |
 | [#4560](https://github.com/Azure/azure-dev/issues/4560) | [Issue] warn users when they need to install powershell 7 (or fallback to powers... | 2024-11-15 | 264 | 1 | High | error handling, ux improvements, hooks |
 
-
 ### 2. PowerShell 7 Installation and Detection Issues
 
 Issues related to detecting PowerShell 7 installation and providing guidance to users.
@@ -44,7 +43,6 @@ Issues related to detecting PowerShell 7 installation and providing guidance to 
 | [#4592](https://github.com/Azure/azure-dev/issues/4592) | [Issue] Powershell scripts should be executed with the -NoProfile switch | 2024-11-27 | 252 | 3 | Low | question, customer-reported |
 | [#4714](https://github.com/Azure/azure-dev/issues/4714) | [Issue] Installing 1.11.1 returns as version 1.10.1 | 2025-01-21 | 196 | 1 | Low | question, customer-reported |
 | [#5453](https://github.com/Azure/azure-dev/issues/5453) | PowerShell 7 suggestion text not showing for service-level hooks | 2025-07-08 | 28 | 0 | Medium | error handling, ux improvements, hooks |
-
 
 ### 3. Hook Execution Failures
 
@@ -60,16 +58,7 @@ Issues where Azure DevOps hooks fail due to PowerShell version mismatches or mis
 | [#3344](https://github.com/Azure/azure-dev/issues/3344) | predeploy hook not triggering | 2024-02-12 | 540 | 1 | Medium | blocker, regression, extensibility |
 | [#3006](https://github.com/Azure/azure-dev/issues/3006) | Packaging error: The "fileName" or "name" properties of emitted chunks and asset... | 2023-11-20 | 624 | 0 | High | bug, command, core |
 
-
-### 4. Expand-Archive Specific Issues
-
-Issues specifically related to `Expand-Archive` command failing in `pwsh` but working in `powershell.exe`.
-
-**Issues in this category:** 0
-
-
-
-### 5. Missing PowerShell 7 Suggestion Text
+### 4. Missing PowerShell 7 Suggestion Text
 
 Issues where the system should show helpful suggestions for installing PowerShell 7 but doesn't.
 
@@ -80,7 +69,7 @@ Issues where the system should show helpful suggestions for installing PowerShel
 | [#4032](https://github.com/Azure/azure-dev/issues/4032) | Getting Started UX Improvements | 2024-06-21 | 410 | 2 | Medium | pm, user-study, ux improvements, ux impact |
 
 
-### 6. General PowerShell-Related Issues
+### 5. General PowerShell-Related Issues
 
 Other PowerShell-related issues that don't fit into the specific categories above.
 
@@ -105,7 +94,6 @@ Other PowerShell-related issues that don't fit into the specific categories abov
 | [#2684](https://github.com/Azure/azure-dev/issues/2684) | Allow for azd auth on clouds other than AzureCloud | 2023-08-31 | 705 | 1 | Low | question, customer-reported |
 | [#5506](https://github.com/Azure/azure-dev/issues/5506) | [Issue] Problem deploying a simple static HTML app to SWA using azd | 2025-07-18 | 18 | 0 | Medium |  |
 | [#4152](https://github.com/Azure/azure-dev/issues/4152) | [Issue] Link issue in azd -h | 2024-07-29 | 372 | 0 | High | bug, ux improvements |
-
 
 ---
 
@@ -134,188 +122,11 @@ Issues specifically related to .NET Aspire applications and PowerShell/pwsh comp
 
 ---
 
-## Detailed Issue Analysis
-
-### Most Critical Issues
-
-
-#### 1. Issue #4384: A standard or better way to populate local environments with azd env variables
-- **URL:** https://github.com/Azure/azure-dev/issues/4384
-- **Created:** 2024-09-27
-- **Comments:** 22
-- **State:** open
-- **Labels:** feature, hooks
-
-**Description:**
-We currently have many templates that need access to azd environment variables to be able to run either hooks, scripts, or local dev server.
-
-There are two ways that templates often do that:
-
-Write the full azd env into a .env file, and then load it with a language package like python-dotenv:
-
-
-
-```azd env get-values > .env```
-
-
-
-Use shell commands to write the env variables into the environment, and call programs from the shell script:
-
-
-
-```
-
-Write-Host "Loading azd .env file from current ...
-
-
-#### 2. Issue #3037: [Issue] azd pipeline config for azdo fails "ERROR: ensuring git remote: Looking for repository: The resource cannot be found."
-- **URL:** https://github.com/Azure/azure-dev/issues/3037
-- **Created:** 2023-11-29
-- **Comments:** 20
-- **State:** closed
-- **Labels:** enhancement, question, azdo, pipelines, customer-reported
-
-**Description:**
-**Output from `azd version`**
-
-azd version 1.5.0 (commit 012ae734904e0c376ce5074605a6d0d3f05789ee)
-
-
-
-**Describe the bug**
-
-The command:
-
-
-
-```bash
-
-azd pipeline config --provider azdo --principal-name sp-EntraAssessDev --debug
-
-```
-
-
-
-Results in the error:
-
-```
-
-ERROR: ensuring git remote: Looking for repository: The resource cannot be found.
-
-```
-
-
-
-
-
-**To Reproduce**
-
-Outside of my environment, not sure.
-
-
-
-
-
-**Expected behavior**
-
-The pipeline is configured or a detailed error message is ret...
-
-
-#### 3. Issue #5201: [Issue] azd Continues to Make /me Graph API Call and Prompts for Parameters in Azure DevOps with WIF, Despite principalId Configuration
-- **URL:** https://github.com/Azure/azure-dev/issues/5201
-- **Created:** 2025-05-15
-- **Comments:** 14
-- **State:** open
-- **Labels:** question, pipelines, customer-reported, aspire
-
-**Description:**
-
-
-**Output from `azd version`**
-azd version 1.16.0 (commit 29480031d2bcbd20153eaacf97856c9ba2e678de)
-
-**Describe the bug**
-**Area:** `azd provision`, Authentication, Azure DevOps Integration
-**`azd` version:** 1.16.0 (as per pipeline logs)
-**OS:** `ubuntu-latest` (Azure DevOps hosted agent)
-**CI/CD System:** Azure DevOps Pipelines
-**Authentication Method:** Azure Service Connection with Workload Identity Federation (WIF)
-
-When attempting to deploy a .NET Aspire application to Azure Container App...
-
-
-#### 4. Issue #3850: [Issue] azd deploy fails in azdo build pipeline when connection string value is expected from remote environment.
-- **URL:** https://github.com/Azure/azure-dev/issues/3850
-- **Created:** 2024-05-03
-- **Comments:** 11
-- **State:** closed
-- **Labels:** question, azdo, pipelines, customer-reported, issue-addressed, aspire
-
-**Description:**
-- [x] Make sure you've installed the latest version using [instructions in the wiki](../wiki/install)
-
-
-
-**Output from `azd version`**
-
-Run `azd version` and copy and paste the output here:
-
-`azd version 1.8.2 (commit 14600c7a54edac4f54397413f8638431f5c16327)`
-
-
-
-**Describe the bug**
-
-Deploying in an azdo pipeline:
-
-```
-
-Pool: Azure Pipelines
-
-Image: ubuntu-latest
-
-Agent: Hosted Agent
-
-Started: Today at 1:39 PM
-
-```
-
-Using Aspire preview 6 `8.0.0-preview.6.24214.1`.
-
-Using `AddConnectionString(s...
-
-
-#### 5. Issue #4844: AZD deploy getting stuck on (Uploading deployment package) as of 2024/02/24
-- **URL:** https://github.com/Azure/azure-dev/issues/4844
-- **Created:** 2025-02-25
-- **Comments:** 10
-- **State:** closed
-- **Labels:** question, needs-triage, customer-reported, app service
-
-**Description:**
-- [ ] Make sure you've installed the latest version using [instructions in the wiki](../wiki/install)
-
-**Output from `azd version`**
-Run `azd version` and copy and paste the output here:
-azd version 1.12.0 (commit dc37b930ef8b80340a510c09a6e657ef5bda4f55)
-
-**Describe the bug**
-Deploying multiple services with AZD up to azure appservice the second service (add likely 3rd) gets stuck on 
-
-```
-Deploying service ServiceName
-Deploying service ServiceName (Uploading deployment package)
-Deploying servi...
-
-
-
----
-
 ## Key Findings and Recommendations
 
 ### 1. Root Cause Analysis
 
-The primary issue is that Azure Developer CLI uses `pwsh` (PowerShell 7) by default in many scenarios, but many Windows users only have PowerShell 5.1 (`powershell.exe`) installed. This creates a poor user experience when:
+The primary issue is that when hooks have scripts that use/expect `pwsh` (PowerShell 7) and Windows users only have PowerShell 5.1 (`powershell.exe`) installed, this causes a frustrating experience that blocks progress.
 
 - Users try to run hooks that specify `shell: pwsh`
 - Templates assume PowerShell 7 is available
@@ -325,39 +136,36 @@ The primary issue is that Azure Developer CLI uses `pwsh` (PowerShell 7) by defa
 
 - **Total PowerShell-related issues:** 46
 - **Critical "pwsh not recognized" issues:** 3
-- **.NET Aspire-specific issues:** 14
 - **PowerShell 7 installation/detection issues:** 5
 - **Hook failure issues:** 5
 - **User experience issues:** 1
 - **General PowerShell issues:** 16
+- **.NET Aspire-specific issues:** 14
 
 ### 3. Recommended Solutions
 
 #### Immediate (High Priority)
-1. **Improve Error Messages**: When `pwsh` is not found, show clear installation instructions
-2. **Fallback Mechanism**: Attempt to use `powershell.exe` when `pwsh` is not available for compatible scripts
+
+1. **Improve Error Messages**: When `pwsh` is not found, show clear installation instructions (we've done this)
+2. **Fallback Mechanism**: Attempt to use `powershell.exe` when `pwsh` is not available for compatible scripts (in progress)
 3. **Detection Logic**: Implement better PowerShell version detection and guidance
 
-#### Medium Term
-1. **Template Updates**: Review templates to use appropriate PowerShell versions
-2. **Documentation**: Create clear guidance on PowerShell requirements
-3. **Hooks Enhancement**: Better error handling in hook execution
+#### Other considerations
 
-#### Long Term
-1. **Cross-platform Consistency**: Standardize shell usage across platforms
-2. **User Preference**: Allow users to configure preferred PowerShell version
-3. **Installation Automation**: Consider auto-installing PowerShell 7 where appropriate
+1. **Template Updates**: Review templates to use appropriate PowerShell versions
+2. **Documentation**: Create clear guidance on PowerShell requirements in the azd context
+3. **Hooks Enhancement**: Better error handling in hook execution
 
 ### 4. Success Metrics
 
-- Reduction in "pwsh not recognized" issues
-- Improved user satisfaction in onboarding
-- Decreased support burden related to PowerShell configuration
+- Reduction in "pwsh" issues
+- Improved user satisfaction (no more pwsh issues logged by customrs)
 - Better template adoption rates
 
 ---
 
 **Analysis Methodology:**
+
 - Analyzed all GitHub issues from Azure Developer CLI repository
 - Filtered for PowerShell/pwsh-related keywords and error patterns
 - Categorized by issue type and severity
