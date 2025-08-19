@@ -10,9 +10,13 @@
 This report analyzes GitHub issues from the Azure Developer CLI repository related to customers struggling with PowerShell configuration, specifically issues arising when users don't have PowerShell 7 installed and encounter `pwsh` command failures.
 
 **Key Problem Areas:**
+
 1. **`pwsh` Command Not Recognized** - Users without PowerShell 7 getting "command not found" errors
+
 2. **Missing PowerShell 7 Installation Guidance** - Lack of clear instructions when PS7 is required
+
 3. **Hook Execution Failures** - Scripts failing when PowerShell 7 is expected but not available
+
 4. **Inconsistent Error Messages** - Poor user experience when PowerShell issues occur
 
 ---
@@ -29,39 +33,26 @@ These are the most critical issues where users encounter "pwsh is not recognized
 |---------|-------|---------|------------|----------|----------|--------|
 | [#4653](https://github.com/Azure/azure-dev/issues/4653) | [Issue] Failed to deploy app when app name too long or different app name has sa... | 2024-12-26 | 223 | 1 | High | compose |
 
-### 2. PowerShell 7 Installation and Detection Issues
-
-Issues related to detecting PowerShell 7 installation and providing guidance to users.
-
-_No open issues in this category._
-
-### 3. Hook Execution Failures
+### 2. Hook Execution Failures
 
 Issues where Azure DevOps hooks fail due to PowerShell version mismatches or missing installations.
-
-**Issues in this category:** 2
 
 | Issue # | Title | Created | Age (Days) | Comments | Severity | Labels |
 |---------|-------|---------|------------|----------|----------|--------|
 | [#3613](https://github.com/Azure/azure-dev/issues/3613) | [Issue/enhancement] Cross-platform shell commands behavior | 2024-03-28 | 496 | 2 | Medium | enhancement, extensibility, hooks |
 | [#3006](https://github.com/Azure/azure-dev/issues/3006) | Packaging error: The "fileName" or "name" properties of emitted chunks and asset... | 2023-11-20 | 624 | 0 | High | bug, command, core |
 
-### 4. Missing PowerShell 7 Suggestion Text
+### 3. Missing PowerShell 7 Suggestion Text
 
 Issues where the system should show helpful suggestions for installing PowerShell 7 but doesn't.
-
-**Issues in this category:** 1
 
 | Issue # | Title | Created | Age (Days) | Comments | Severity | Labels |
 |---------|-------|---------|------------|----------|----------|--------|
 | [#4032](https://github.com/Azure/azure-dev/issues/4032) | Getting Started UX Improvements | 2024-06-21 | 410 | 2 | Medium | pm, user-study, ux improvements, ux impact |
 
-
-### 5. General PowerShell-Related Issues
+### 4. General PowerShell-Related Issues
 
 Other PowerShell-related issues that don't fit into the specific categories above.
-
-**Issues in this category:** 9
 
 | Issue # | Title | Created | Age (Days) | Comments | Severity | Labels |
 |---------|-------|---------|------------|----------|----------|--------|
@@ -74,19 +65,15 @@ Other PowerShell-related issues that don't fit into the specific categories abov
 | [#4837](https://github.com/Azure/azure-dev/issues/4837) | compose: cosmos db - containers | 2025-02-21 | 165 | 1 | Medium | discuss |
 | [#5506](https://github.com/Azure/azure-dev/issues/5506) | [Issue] Problem deploying a simple static HTML app to SWA using azd | 2025-07-18 | 18 | 0 | Medium |  |
 | [#4152](https://github.com/Azure/azure-dev/issues/4152) | [Issue] Link issue in azd -h | 2024-07-29 | 372 | 0 | High | bug, ux improvements |
----
 
 ## .NET Aspire-Specific PowerShell Issues
 
 Issues specifically related to .NET Aspire applications and PowerShell/pwsh compatibility.
 
-**Issues in this category:** 2
-
 | Issue # | Title | Created | Age (Days) | Comments | Severity | Labels |
 |---------|-------|---------|------------|----------|----------|--------|
 | [#5201](https://github.com/Azure/azure-dev/issues/5201) | [Issue] azd Continues to Make /me Graph API Call and Prompts for Parameters in A... | 2025-05-15 | 83 | 14 | Low | question, pipelines, customer-reported, aspire |
 | [#5507](https://github.com/Azure/azure-dev/issues/5507) | Broken .NET Aspire Azure CI/CD pipeline: error unmarshalling Bicep template para... | 2025-07-20 | 16 | 1 | Low | question, customer-reported |
----
 
 ## Key Findings and Recommendations
 
@@ -137,4 +124,4 @@ The primary issue is that when hooks have scripts that use/expect `pwsh` (PowerS
 - Categorized by issue type and severity
 - Prioritized by community engagement (comments) and impact
 
-*This report supports Azure Developer CLI's strategic planning for improving PowerShell user experience.*
+_This report supports Azure Developer CLI's strategic planning for improving PowerShell user experience._
