@@ -1,7 +1,7 @@
 # Azure Developer CLI - GitHub Issues Analysis Project
 
 ## Overview
-This project contains the comprehensive analysis of GitHub issues in the Azure/azure-dev repository as outlined in [Issue #4445](https://github.com/Azure/azure-dev/issues/4445). The goal is to understand customer pain points, prioritize feature requests, and optimize development efforts based on real user feedback.
+This project contains the comprehensive analysis of GitHub issues in the Azure/azure-dev repository. The goal is to understand customer pain points, prioritize feature requests, and optimize development efforts based on real user feedback.
 
 ## Project Structure
 ```
@@ -32,40 +32,52 @@ github-issues-project/
 ## Objectives
 
 ### 1. Top Customer-Reported Issues and Struggles
+
 Identify the most frequently reported problems and developer pain points by analyzing:
+
 - All open and closed issues from Azure/azure-dev repository
 - Issue categorization (bugs, feature requests, documentation gaps, usability)
 - Engagement metrics (reactions, comments, duplicates)
 - Priority ranking based on impact and frequency
 
 ### 2. Duplicate and Similar Issue Clustering
+
 Group related issues that may be addressing the same underlying problem:
+
 - Issues with similar titles, descriptions, or error messages
 - Common keywords, error codes, or workflows
 - Semantic similarity beyond existing GitHub labels
 - Root cause analysis for grouped issues
 
 ### 3. Features Already Available vs. Requested
+
 Identify features that exist but users aren't aware of them:
+
 - Compare feature requests against existing Azure Developer CLI documentation
 - Check CLI help output, README.md, and feature documentation
 - Identify communication and documentation gaps
 
 ### 4. Documentation Gaps for Existing Features
+
 Find features that exist and are documented but still generate support requests:
+
 - Cross-reference documented features with open issues
 - Identify unclear, incomplete, or hard-to-find documentation
 - Analyze error messages and workflow guidance needs
 
 ### 5. Trend Analysis
+
 Understand how issues evolve over time:
+
 - Issue creation patterns and seasonal trends
 - Version-related issue spikes
 - Category trends (increasing/decreasing)
 - Correlation with CLI releases and feature launches
 
 ### 6. Actionable Recommendations
+
 Provide concrete next steps based on the analysis:
+
 - Priority actions with effort estimates
 - Quick wins for immediate impact
 - Long-term strategic recommendations
@@ -73,6 +85,7 @@ Provide concrete next steps based on the analysis:
 ## Key Research Areas
 
 ### Issue Categories to Analyze:
+
 - Authentication/Login issues
 - Environment management problems
 - Deployment failures
@@ -82,13 +95,14 @@ Provide concrete next steps based on the analysis:
 - Docker/container related issues
 - Azure service integration problems
 
-### User Personas to Consider:
+### Personas:
+
 - Individual developers
 - Development teams
 - Enterprise users
 - New users vs. experienced users
 
-## Expected Deliverables
+## Deliverables
 
 1. **Executive Summary**: Top 10 customer pain points with impact assessment
 2. **Issue Clustering Report**: Grouped similar issues with consolidation recommendations
@@ -100,18 +114,21 @@ Provide concrete next steps based on the analysis:
 ## Analysis Methodology
 
 ### Data Collection
+
 - Systematic retrieval of all issues from Azure/azure-dev repository
 - Engagement metrics collection (reactions, comments, views)
 - Issue metadata analysis (labels, assignees, milestones)
 - Cross-reference with official documentation
 
 ### Analysis Framework
+
 - Quantitative analysis of issue volume and patterns
 - Qualitative analysis of issue content and user sentiment
 - Comparative analysis of requested vs. existing features
 - Temporal analysis of trends and patterns
 
-### Quality Assurance
+### Testing
+
 - Multiple validation passes on categorization
 - Cross-verification of findings
 - Stakeholder review of recommendations
