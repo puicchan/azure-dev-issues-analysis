@@ -27,7 +27,6 @@ This report analyzes GitHub issues from the Azure Developer CLI repository relat
 
 These are the most critical issues where users encounter "pwsh is not recognized" errors because they don't have PowerShell 7 installed.
 
-**Issues in this category:** 1
 
 | Issue # | Title | Created | Age (Days) | Comments | Severity | Labels |
 |---------|-------|---------|------------|----------|----------|--------|
@@ -64,7 +63,6 @@ Other PowerShell-related issues that don't fit into the specific categories abov
 | [#2555](https://github.com/Azure/azure-dev/issues/2555) | core/host/functions.bicep - 'dotnetcore' is not a valid value for FUNCTIONS_WORK... | 2023-07-20 | 748 | 2 | High | bug, functions, Bicep, hacktoberfest |
 | [#4837](https://github.com/Azure/azure-dev/issues/4837) | compose: cosmos db - containers | 2025-02-21 | 165 | 1 | Medium | discuss |
 | [#5506](https://github.com/Azure/azure-dev/issues/5506) | [Issue] Problem deploying a simple static HTML app to SWA using azd | 2025-07-18 | 18 | 0 | Medium |  |
-| [#4152](https://github.com/Azure/azure-dev/issues/4152) | [Issue] Link issue in azd -h | 2024-07-29 | 372 | 0 | High | bug, ux improvements |
 
 ## .NET Aspire-Specific PowerShell Issues
 
