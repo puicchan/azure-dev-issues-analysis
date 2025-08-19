@@ -19,9 +19,11 @@ github-issues-project/
 │   ├── raw-data/                       # Raw issue data collected
 │   └── processed-data/                 # Cleaned and categorized data
 ├── reports/
-│   ├── executive-summary.md            # High-level findings for stakeholders
-│   ├── technical-report.md             # Detailed findings for developers
-│   └── action-plan.md                  # Prioritized list of recommendations
+│   ├── issue-analysis-report.md        # High-level report analysis of all issues
+│   ├── powershell-pwsh-issues...       # Detailed findings for PowerShell issues
+│   ├── multi-env (comprehensive)       # Full report of env issues
+│   ├── multi-env (focused)             # Env report focused on customer reported
+│   └── env-issues (detailed)           # Env report detailed   
 └── tools/
     ├── issue-collector.md              # Scripts/tools for data collection
     └── analysis-helpers.md             # Helper tools and utilities
