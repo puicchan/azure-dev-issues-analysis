@@ -34,9 +34,7 @@ Issues focused on promoting code and infrastructure between environments
 | [3180](https://github.com/Azure/azure-dev/issues/3180) | Deployment iteration ID as environment variable | 2024-01-07 | 561 | 5 | Customer | enhancement, question, customer-reported | Documented here: https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/environment-variables-faq. Closing issue.
 | [5034](https://github.com/Azure/azure-dev/issues/5034) | Identify gaps/features: E2E/Production readiness | 2025-04-02 | 109 | 1 | Team | production | This is already closed. No action taken.
 | [3297](https://github.com/Azure/azure-dev/issues/3297) | Multi-environment scenarios do not work | 2024-02-06 | 531 | 1 | Customer | bug, vs, aspire | This is already closed. No action taken.
-| [3550](https://github.com/Azure/azure-dev/issues/3550) | [Issue] Create Resource Group Deployment Based on Environment Variable | 2024-03-18 | 490 | 0 | Customer | feature, aspire | Now closed. Victor confirmed: "This is not supported publishing Aspire projects.
-And to support this, it should be possible to model this from Aspire (the AppHost).
-I'll create dotnet/aspire#11037 to follow up with Aspire team"
+| [3550](https://github.com/Azure/azure-dev/issues/3550) | [Issue] Create Resource Group Deployment Based on Environment Variable | 2024-03-18 | 490 | 0 | Customer | feature, aspire | Now closed. Victor confirmed: "This is not supported publishing Aspire projects. And to support this, it should be possible to model this from Aspire (the AppHost). I'll create dotnet/aspire#11037 to follow up with Aspire team"
 
 *Note: Recent issues (5472, 5335, 5346) have been excluded from this analysis.*
 
@@ -136,4 +134,20 @@ With recent team issues excluded, this analysis highlights core customer-reporte
 - Focused on dev/staging/prod promotion challenges
 - Prioritized customer-reported issues and historical patterns
 
-*This report supports Azure Developer CLI's strategic planning for multi-environment workflow improvements, with emphasis on addressing established customer pain points.*
+
+---
+
+## Summary Table: Issue Categories and Links
+
+| Category                      | # of Issues | Issue Links |
+|-------------------------------|:-----------:|:------------|
+| Closed with no action         |      4      | [4739](https://github.com/Azure/azure-dev/issues/4739), [5034](https://github.com/Azure/azure-dev/issues/5034), [3297](https://github.com/Azure/azure-dev/issues/3297), [2434](https://github.com/Azure/azure-dev/issues/2434) |
+| Now closed                    |      3      | [3550](https://github.com/Azure/azure-dev/issues/3550), [4347](https://github.com/Azure/azure-dev/issues/4347), [5221](https://github.com/Azure/azure-dev/issues/5221) |
+| Aspire-related                |      3      | [3957](https://github.com/Azure/azure-dev/issues/3957), [4103](https://github.com/Azure/azure-dev/issues/4103), [5186](https://github.com/Azure/azure-dev/issues/5186) |
+| Non-environment related       |      3      | [4197](https://github.com/Azure/azure-dev/issues/4197), [4128](https://github.com/Azure/azure-dev/issues/4128), [3587](https://github.com/Azure/azure-dev/issues/3587) |
+| Backlog/Assigned/Follow-up    |      2      | [3439](https://github.com/Azure/azure-dev/issues/3439), [4138](https://github.com/Azure/azure-dev/issues/4138) |
+| Still open/investigating      |      2      | [4248](https://github.com/Azure/azure-dev/issues/4248), [3920](https://github.com/Azure/azure-dev/issues/3920) |
+| Aged/no more repro            |      1      | [3641](https://github.com/Azure/azure-dev/issues/3641) |
+| Closed (Transferred/Documented)|     2      | [4348](https://github.com/Azure/azure-dev/issues/4348), [3180](https://github.com/Azure/azure-dev/issues/3180) |
+
+*This table summarizes the distribution of all 20 issues by category, with direct links for reference.*
